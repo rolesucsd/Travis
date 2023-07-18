@@ -19,7 +19,7 @@ import argparse
 pathDict = {}
 memberDict = {}
 
-def dfsPath(graph, start, end, path, members):
+def path_finder(graph, start, end, path, members):
     """
     A recursive function to find all possible paths in a graph.
 
@@ -60,7 +60,7 @@ def dfsPath(graph, start, end, path, members):
 
                     # There must be at least one member in common to continue
                     if len(intersectionMembers) >= 1:
-                        dfsPath(graph, neighbour, end, path, intersectionMembers)
+                        path_finder(graph, neighbour, end, path, intersectionMembers)
 
         path.pop()
     return 0
@@ -79,7 +79,7 @@ def uploadGraph(file, start, end):
 
     # Compare genomeIDs between edge and potential next edge
     path = []
-    dfsPath(G, start_key, end, path, nx.get_node_attributes(G, 'genomeIDs')[start_key].split(';'))
+    path_finder(G, start_key, end, path, nx.get_node_attributes(G, 'genomeIDs')[start_key].split(';'))
     print(path)
 
     os.makedirs(output_folder, exist_ok=True)
