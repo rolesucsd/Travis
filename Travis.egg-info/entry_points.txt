@@ -1,0 +1,4 @@
+[console_scripts]
+travis-annotate = travis.__main__:annotate
+travis-pathfinder = travis.__main__:pathfinder
+travis-plot = travis.__main__:plot

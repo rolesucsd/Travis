@@ -24,6 +24,14 @@ def sanitize_value(value):
     return sanitized_value
 
 def annotate(graph_file, dataframe_file, graph_column, dataframe_column):
+    # Check if input files exist
+    if not os.path.exists(graph_file):
+        print(f"Error: The specified graph file '{graph_file}' does not exist.")
+        return
+    if not os.path.exists(dataframe_file):
+        print(f"Error: The specified dataframe file '{dataframe_file}' does not exist.")
+        return
+
     # Read the graph file
     graph = nx.read_gml(graph_file)
 
