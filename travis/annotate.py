@@ -52,7 +52,8 @@ def annotate(graph_file, dataframe_file, graph_column, dataframe_column):
     nx.write_gml(graph, updated_graph_file)
     print(f"Graph file with updated values saved to '{updated_graph_file}'.")
 
-if __name__ == '__main__':
+def main():
+    print("Running annotate.py")
     parser = argparse.ArgumentParser(description='Attribute adder')
     parser.add_argument('--graph', required=True, help='Path to the graph file')
     parser.add_argument('--dataframe', required=True, help='Path to the dataframe')
@@ -61,3 +62,6 @@ if __name__ == '__main__':
     args = parser.parse_args()
 
     annotate(args.graph, args.dataframe, args.graph_name, args.dataframe_column)
+    
+if __name__ == '__main__':
+    main()

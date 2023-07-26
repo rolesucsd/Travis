@@ -11,12 +11,17 @@
 import argparse
 import subprocess
 
-if __name__ == '__main__':
+def main():
+    print("Running plot.py")
+
     parser = argparse.ArgumentParser(description='Path Finder')
     parser.add_argument('--path', required=True, help='Path to full path output file')
     parser.add_argument('--metadata', required=True, help='Dataframe with columns Gene, Length, Label')
     parser.add_argument('--output', required=True, help='Output folder')
     args = parser.parse_args()
 
-	arguments = [args.path, args.metadata, args.output]
-	subprocess.run(["Rscript", "gggenes.R"] + arguments)
+    arguments = [args.path, args.metadata, args.output]
+    subprocess.run(["Rscript", "gggenes.R"] + arguments)
+
+if __name__ == '__main__':
+    main()

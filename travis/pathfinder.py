@@ -118,7 +118,8 @@ def pathfinder(file, start, end):
     df.to_csv(os.path.join(output_folder, f"{start}_member.csv"), sep='\t', index=False)
 
 
-if __name__ == '__main__':
+def main():
+    print("Running pathfinder.py")
     parser = argparse.ArgumentParser(description='Path Finder')
     parser.add_argument('--graph', required=True, help='Path to the graph file')
     parser.add_argument('--start', required=True, help='Start gene')
@@ -127,3 +128,6 @@ if __name__ == '__main__':
     args = parser.parse_args()
 
     pathfinder(args.graph, args.start, args.stop, args.output)
+
+if __name__ == '__main__':
+    main()

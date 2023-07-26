@@ -32,7 +32,9 @@ setup(
     python_requires=">=3.6",
     entry_points={
         'console_scripts': [
-            'travis = travis.__main__:main'
+            'travis-pathfinder = travis.__main__:pathfinder',
+            'travis-annotate = travis.__main__:annotate',
+            'travis-plot = travis.__main__:plot',
         ]
     }
 )
