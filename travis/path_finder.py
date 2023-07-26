@@ -84,10 +84,20 @@ def uploadGraph(file, start, end):
 
     os.makedirs(output_folder, exist_ok=True)
 
-    name = os.path.join(output_folder, f"{start}_path_full.csv")
-    with open(name, 'w') as f:
-        for key, value in pathDict.items():
-            f.write('%s:%s\n' % (key, value))
+    # Create an empty list to store the final data
+    formatted_data = []
+
+    # Process each path and its corresponding gene list
+    for path_name, gene_list in pathDict.items():
+        for position, gene in enumerate(gene_list, start=1):
+            formatted_data.append({
+                'Gene': gene,
+                'Path': path_name,
+                'Position': position
+        })
+
+    formatted_df = pd.DataFrame(formatted_data)
+    formatted_df.to_csv(os.path.join(output_folder, f"{start}_path_full.csv"), sep='\t', index=False)
 
     df = pd.DataFrame({k: Counter(v) for k, v in pathDict.items()}).fillna(0).astype(int)
     df.to_csv(os.path.join(output_folder, f"{start}_path.csv"), sep='\t')
