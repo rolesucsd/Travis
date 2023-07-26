@@ -30,4 +30,9 @@ setup(
         "Topic :: Software Development :: Libraries :: Python Modules",
         "Development Status :: 3 - Alpha"],
     python_requires=">=3.6",
+    entry_points={
+        'console_scripts': [
+            'travis = travis.__main__:main'
+        ]
+    }
 )
