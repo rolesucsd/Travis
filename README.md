@@ -76,7 +76,7 @@ The `plot` command generates a plot of all the operons.
 Run the script with the following command:
 
 ```sh
-python plot.py --path <path_full.csv> --metadata <metadata> --output <output_folder>
+travis-plot --path <path_full.csv> --metadata <metadata> --output <output_folder>
 ```
 
 - `<path_full.csv>`: Output from pathfinder.
