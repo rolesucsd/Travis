@@ -64,12 +64,12 @@ def main():
     print("Running annotate.py")
     parser = argparse.ArgumentParser(description='Attribute adder')
     parser.add_argument('--graph', required=True, help='Path to the graph file')
-    parser.add_argument('--dataframe', required=True, help='Path to the dataframe')
+    parser.add_argument('--metadata', required=True, help='Path to the dataframe')
     parser.add_argument('--graph_name', required=True, help='Reference for the graph')
-    parser.add_argument('--dataframe_column', required=True, help='Reference column for the dataframe')
+    parser.add_argument('--metadata_column', required=True, help='Reference column for the dataframe')
     args = parser.parse_args()
 
-    annotate(args.graph, args.dataframe, args.graph_name, args.dataframe_column)
+    annotate(args.graph, args.metadata, args.graph_name, args.metadata_column)
     
 if __name__ == '__main__':
     main()
