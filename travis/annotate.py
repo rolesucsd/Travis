@@ -12,6 +12,7 @@ import pandas as pd
 import networkx as nx
 import re
 import argparse
+import os
 
 def validate_key(key):
     # Remove any non-alphanumeric characters from the key
@@ -42,7 +43,6 @@ def annotate(graph_file, dataframe_file, graph_column, dataframe_column):
     for node in graph.nodes():
         name = graph.nodes[node][graph_column]
         if name:
-            print("Name:", name)
             additional_data = dataframe[dataframe[dataframe_column] == name]
             if not additional_data.empty:
                 # Convert the selected row to a dictionary
@@ -52,8 +52,6 @@ def annotate(graph_file, dataframe_file, graph_column, dataframe_column):
                     for key, value in additional_data.items()
                 }
                 graph.nodes[node].update(validated_dict)
-                print("Updated Node:", graph.nodes[node])
-                print()
 
     # Save the updated graph
     updated_graph_file = graph_file.replace(".gml", "_updated.gml")

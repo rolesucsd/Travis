@@ -69,7 +69,7 @@ The script will save the updated graph file with the added attributes. The outpu
 
 ## Plot
 
-The `plot` command generates a plot of all the operons.
+The `plot` command generates a plot of all the operons using [gggenes](https://github.com/wilkox/gggenes).
 
 ### Usage
 
@@ -83,11 +83,13 @@ travis-plot --path <path_full.csv> --metadata <metadata> --output <output_folder
 - `<metadata>`: Path to your dataframe file, must include the columns Gene, Length, and Label
 - `<output_folder>`: Path to the output folder.
 
-The script generates a heatmap using the data from the specified dataframe file.
+The script generates a gggenes operon map of each possible path using the data from the specified dataframe file.
 
 ### Output
 
-The command will produce a png image of the operons.
+The command will produce a png image of the operons. Here is an example plot of PSA in *Bacteroides fragilis*. 
+
+![PSA](images/PSA.png)
 
 ## License
 
